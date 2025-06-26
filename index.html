@@ -1,0 +1,1233 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Terrain | Premium Landscape Design & Construction</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/signature_pad@4.0.0/dist/signature_pad.umd.min.js"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600;700&family=Montserrat:wght@300;400;500;600;700&display=swap');
+        body {
+            font-family: 'Montserrat', sans-serif;
+            color: #333;
+            scroll-behavior: smooth;
+        }
+        h1, h2, h3, h4, h5 {
+            font-family: 'Cormorant Garamond', serif;
+        }
+        .hero-section {
+            background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='1600' height='900' viewBox='0 0 1600 900'%3E%3Crect fill='%23304030' width='1600' height='900'/%3E%3Cg fill-opacity='0.1'%3E%3Cpath fill='%23304030' d='M1600 900H0V0h1600v900z'/%3E%3Cpath fill='%23304030' d='M1600 900H0V0h1600v900z'/%3E%3Cpath fill='%23304030' d='M1600 900H0V0h1600v900z'/%3E%3C/g%3E%3Cg fill-opacity='0.08'%3E%3Ccircle fill='%23ffffff' cx='400' cy='400' r='600'/%3E%3Ccircle fill='%23ffffff' cx='1200' cy='500' r='400'/%3E%3C/g%3E%3C/svg%3E");
+            background-size: cover;
+            background-position: center;
+        }
+        
+        /* Hero Image Options */
+        .hero-section.hero-1 {
+            background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url("STYLES/Formal-Modern Minimalist/Hero.jpg");
+        }
+        
+        .hero-section.hero-2 {
+            background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url("STYLES/Mediterranean-Drought tolerant/25c79064651514b85d81ebeeb134dc23.jpg");
+        }
+        
+        .hero-section.hero-3 {
+            background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url("STYLES/Tropical-lush planting/Hero.jpg");
+        }
+        
+        .hero-section.hero-4 {
+            background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url("STYLES/Naturalistic styles/Step into a modern Nantucket sanctuary complete with a secret garden.jpg");
+        }
+        
+        .hero-section.hero-5 {
+            background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url("STYLES/Australian natives/Hero.jpg");
+        }
+        
+        .hero-section.hero-6 {
+            background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url("STYLES/Harmony-Zen garden/Hero.jpg");
+        }
+        
+        /* Design Portal Styles */
+        .step-indicator {
+            transition: all 0.3s ease;
+        }
+        
+        .step-content {
+            transition: opacity 0.3s ease;
+        }
+        
+        .fade-in {
+            animation: fadeIn 0.5s ease-in;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .garden-style-option input:checked + div {
+            border-color: #4A6741;
+            background-color: #f0f9ff;
+        }
+        
+        .garden-style-option:hover div {
+            border-color: #4A6741;
+            transform: translateY(-2px);
+        }
+        
+        /* Form Styles */
+        .btn-primary {
+            background: #4A6741;
+            color: white;
+            transition: all 0.3s;
+        }
+        
+        .btn-primary:hover {
+            background: #3d5a35;
+            transform: translateY(-1px);
+        }
+        
+        .btn-secondary {
+            background: transparent;
+            border: 1px solid #4A6741;
+            color: #4A6741;
+            transition: all 0.3s;
+        }
+        
+        .btn-secondary:hover {
+            background: #4A6741;
+            color: white;
+        }
+        
+        /* ... (rest of the CSS will be added in the next step) ... */
+    </style>
+</head>
+<body class="bg-stone-50">
+    <!-- Navigation -->
+    <nav class="fixed w-full bg-white bg-opacity-95 shadow-sm z-50">
+        <div class="container mx-auto px-4 py-4 flex justify-between items-center">
+            <div class="flex items-center">
+                <h1 class="text-2xl font-semibold text-gray-800">
+                    <span class="text-[#4A6741]">Terrain</span>
+                </h1>
+            </div>
+            <div class="hidden md:flex space-x-8">
+                <a href="#home" class="nav-link text-gray-700 hover:text-[#4A6741]">Home</a>
+                <a href="#design-portal" class="nav-link text-gray-700 hover:text-[#4A6741]">Design Portal</a>
+                <a href="#education" class="nav-link text-gray-700 hover:text-[#4A6741]">Education</a>
+                <a href="#inspiration" class="nav-link text-gray-700 hover:text-[#4A6741]">Inspiration</a>
+                <a href="pro-tools.html" class="nav-link text-gray-700 hover:text-[#4A6741]">Pro Tools</a>
+            </div>
+            <div class="md:hidden">
+                <button id="mobile-menu-button" class="text-gray-700">
+                    <i class="fas fa-bars text-xl"></i>
+                </button>
+            </div>
+        </div>
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white w-full">
+            <div class="container mx-auto px-4 py-2 flex flex-col space-y-3">
+                <a href="#home" class="text-gray-700 hover:text-[#4A6741] py-2">Home</a>
+                <a href="#design-portal" class="text-gray-700 hover:text-[#4A6741] py-2">Design Portal</a>
+                <a href="#education" class="text-gray-700 hover:text-[#4A6741] py-2">Education</a>
+                <a href="#inspiration" class="text-gray-700 hover:text-[#4A6741] py-2">Inspiration</a>
+                <a href="pro-tools.html" class="text-gray-700 hover:text-[#4A6741] py-2">Pro Tools</a>
+            </div>
+        </div>
+    </nav>
+    <!-- Hero Section -->
+    <section id="home" class="hero-section hero-1 min-h-screen flex items-center justify-center pt-16">
+        <div class="container mx-auto px-4 text-center text-white">
+            <h1 class="text-5xl md:text-7xl font-light mb-6">Design your dream backyard</h1>
+            <p class="text-xl md:text-2xl mb-10 max-w-3xl mx-auto">Your design & build one stop shop</p>
+            <div class="flex flex-col md:flex-row justify-center gap-4">
+                <a href="#design-portal" class="btn-primary px-8 py-3 rounded-md text-lg font-medium">
+                    Design Your Space
+                </a>
+                <a href="#inspiration" class="btn-secondary px-8 py-3 rounded-md text-lg font-medium">
+                    Explore Our Work
+                </a>
+            </div>
+            
+            <!-- Hero Image Selector -->
+            <div class="mt-8 flex justify-center">
+                <div class="bg-white bg-opacity-20 backdrop-blur-sm rounded-lg p-4">
+                    <p class="text-sm mb-2">更换背景图片:</p>
+                    <div class="flex gap-2">
+                        <button onclick="changeHeroImage('hero-1')" class="hero-btn active w-8 h-8 rounded bg-white bg-opacity-30 hover:bg-opacity-50 transition-all"></button>
+                        <button onclick="changeHeroImage('hero-2')" class="hero-btn w-8 h-8 rounded bg-white bg-opacity-30 hover:bg-opacity-50 transition-all"></button>
+                        <button onclick="changeHeroImage('hero-3')" class="hero-btn w-8 h-8 rounded bg-white bg-opacity-30 hover:bg-opacity-50 transition-all"></button>
+                        <button onclick="changeHeroImage('hero-4')" class="hero-btn w-8 h-8 rounded bg-white bg-opacity-30 hover:bg-opacity-50 transition-all"></button>
+                        <button onclick="changeHeroImage('hero-5')" class="hero-btn w-8 h-8 rounded bg-white bg-opacity-30 hover:bg-opacity-50 transition-all"></button>
+                        <button onclick="changeHeroImage('hero-6')" class="hero-btn w-8 h-8 rounded bg-white bg-opacity-30 hover:bg-opacity-50 transition-all"></button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Design Portal Section -->
+    <section id="design-portal" class="py-20 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-light mb-4">Interactive Design Portal</h2>
+                <p class="text-gray-600 max-w-2xl mx-auto">Create your custom landscape design by following our simple step-by-step process. Visualize your dream space and get an instant quote.</p>
+            </div>
+            <div class="max-w-5xl mx-auto bg-stone-50 rounded-lg shadow-lg p-8">
+                <!-- Steps Indicator -->
+                <div class="flex justify-between mb-8 relative">
+                    <div class="absolute top-1/2 h-1 bg-gray-200 w-full -z-10"></div>
+                    <div class="step-indicator active w-10 h-10 rounded-full bg-[#4A6741] text-white flex items-center justify-center font-medium z-10">1</div>
+                    <div class="step-indicator w-10 h-10 rounded-full bg-gray-200 text-gray-600 flex items-center justify-center font-medium z-10">2</div>
+                    <div class="step-indicator w-10 h-10 rounded-full bg-gray-200 text-gray-600 flex items-center justify-center font-medium z-10">3</div>
+                    <div class="step-indicator w-10 h-10 rounded-full bg-gray-200 text-gray-600 flex items-center justify-center font-medium z-10">4</div>
+                    <div class="step-indicator w-10 h-10 rounded-full bg-gray-200 text-gray-600 flex items-center justify-center font-medium z-10">5</div>
+                    <div class="step-indicator w-10 h-10 rounded-full bg-gray-200 text-gray-600 flex items-center justify-center font-medium z-10">6</div>
+                    <div class="step-indicator w-10 h-10 rounded-full bg-gray-200 text-gray-600 flex items-center justify-center font-medium z-10">7</div>
+                </div>
+                <form id="estimator-form" class="space-y-8">
+                    <!-- Step 1: Area -->
+                    <div class="step-content active fade-in" id="step-1">
+                        <h3 class="text-2xl font-light mb-6">Step 1: Enter or Choose Your Landscape Area</h3>
+                        <div class="mb-4">Please either enter the landscape area in square meters (sq m), or select an approximate size below.</div>
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                            <div>
+                                <label class="block text-gray-700 mb-2 font-medium">Landscape Area (sq m)</label>
+                                <input type="number" id="landscape-area" name="landscape_area" min="1" step="1" class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#4A6741]" placeholder="e.g., 100">
+                            </div>
+                            <div class="flex flex-col gap-2">
+                                <label class="block text-gray-700 mb-2 font-medium">Or choose a size:</label>
+                                <div class="flex gap-2">
+                                    <label class="flex items-center gap-1 cursor-pointer">
+                                        <input type="radio" name="garden_size" value="small" class="accent-[#4A6741]"> <span>Small (≤200㎡)</span>
+                                    </label>
+                                    <label class="flex items-center gap-1 cursor-pointer">
+                                        <input type="radio" name="garden_size" value="medium" class="accent-[#4A6741]"> <span>Medium (200-500㎡)</span>
+                                    </label>
+                                    <label class="flex items-center gap-1 cursor-pointer">
+                                        <input type="radio" name="garden_size" value="large" class="accent-[#4A6741]"> <span>Large (&gt;500㎡)</span>
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="mt-8 flex justify-end">
+                            <button type="button" class="next-step btn-primary px-6 py-2 rounded-md">Continue</button>
+                        </div>
+                    </div>
+
+                    <!-- Step 2: Garden Style -->
+                    <div class="step-content hidden fade-in" id="step-2">
+                        <h3 class="text-2xl font-light mb-6">Step 2: Choose Your Garden Style</h3>
+                        <div class="mb-4">Select the garden style that best matches your vision.</div>
+                        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+                            <label class="garden-style-option cursor-pointer">
+                                <input type="radio" name="garden_style" value="formal-modern" class="hidden">
+                                <div class="bg-white rounded-lg shadow p-4 border-2 border-gray-200 hover:border-[#4A6741] transition-all">
+                                    <img src="STYLES/Formal-Modern Minimalist/Hero.jpg" alt="Formal-Modern Minimalist" class="w-full aspect-square object-cover rounded mb-3">
+                                    <h4 class="font-medium text-center">Formal-Modern Minimalist</h4>
+                                </div>
+                            </label>
+                            <label class="garden-style-option cursor-pointer">
+                                <input type="radio" name="garden_style" value="mediterranean" class="hidden">
+                                <div class="bg-white rounded-lg shadow p-4 border-2 border-gray-200 hover:border-[#4A6741] transition-all">
+                                    <img src="STYLES/Mediterranean-Drought tolerant/25c79064651514b85d81ebeeb134dc23.jpg" alt="Mediterranean" class="w-full aspect-square object-cover rounded mb-3">
+                                    <h4 class="font-medium text-center">Mediterranean-Drought tolerant</h4>
+                                </div>
+                            </label>
+                            <label class="garden-style-option cursor-pointer">
+                                <input type="radio" name="garden_style" value="tropical" class="hidden">
+                                <div class="bg-white rounded-lg shadow p-4 border-2 border-gray-200 hover:border-[#4A6741] transition-all">
+                                    <img src="STYLES/Tropical-lush planting/Hero.jpg" alt="Tropical" class="w-full aspect-square object-cover rounded mb-3">
+                                    <h4 class="font-medium text-center">Tropical-lush planting</h4>
+                                </div>
+                            </label>
+                            <label class="garden-style-option cursor-pointer">
+                                <input type="radio" name="garden_style" value="naturalistic" class="hidden">
+                                <div class="bg-white rounded-lg shadow p-4 border-2 border-gray-200 hover:border-[#4A6741] transition-all">
+                                    <img src="STYLES/Naturalistic styles/Step into a modern Nantucket sanctuary complete with a secret garden.jpg" alt="Naturalistic" class="w-full aspect-square object-cover rounded mb-3">
+                                    <h4 class="font-medium text-center">Naturalistic styles</h4>
+                                </div>
+                            </label>
+                            <label class="garden-style-option cursor-pointer">
+                                <input type="radio" name="garden_style" value="australian" class="hidden">
+                                <div class="bg-white rounded-lg shadow p-4 border-2 border-gray-200 hover:border-[#4A6741] transition-all">
+                                    <img src="STYLES/Australian natives/Hero.jpg" alt="Australian" class="w-full aspect-square object-cover rounded mb-3">
+                                    <h4 class="font-medium text-center">Australian natives</h4>
+                                </div>
+                            </label>
+                            <label class="garden-style-option cursor-pointer">
+                                <input type="radio" name="garden_style" value="zen" class="hidden">
+                                <div class="bg-white rounded-lg shadow p-4 border-2 border-gray-200 hover:border-[#4A6741] transition-all">
+                                    <img src="STYLES/Harmony-Zen garden/Hero.jpg" alt="Zen" class="w-full aspect-square object-cover rounded mb-3">
+                                    <h4 class="font-medium text-center">Harmony-Zen garden</h4>
+                                </div>
+                            </label>
+                        </div>
+                        <div class="mt-8 flex justify-between">
+                            <button type="button" class="prev-step btn-secondary px-6 py-2 rounded-md">Back</button>
+                            <button type="button" class="next-step btn-primary px-6 py-2 rounded-md">Continue</button>
+                        </div>
+                    </div>
+
+                    <!-- Step 3: Select Garden Feature & Elements -->
+                    <div class="step-content hidden fade-in" id="step-3">
+                        <h3 class="text-2xl font-light mb-6">Step 3: Select Garden Feature & Elements</h3>
+                        <div class="mb-4">Choose the garden features and elements you'd like to include in your design. Click an element to learn more or add a custom link.</div>
+                        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                            <!-- 卡片模板，后续可批量添加/修改 -->
+                            <div class="feature-card bg-white rounded-lg shadow p-4 flex flex-col items-center">
+                                <img src="Images/Exposed_aggregate_concrete/Hero.jpg" onerror="this.onerror=null;this.src='Images/Exposed_aggregate_concrete/1.jpg'" alt="Exposed aggregate concrete" class="w-full aspect-square object-cover rounded mb-3">
+                                <div class="font-semibold text-lg mb-1">Exposed aggregate concrete</div>
+                                <div class="text-gray-600 text-sm mb-3">Durable, decorative concrete finish with exposed stones for texture and visual interest.</div>
+                                <a href="#" class="text-[#4A6741] font-medium hover:underline">Learn more / Add link</a>
+                            </div>
+                            <div class="feature-card bg-white rounded-lg shadow p-4 flex flex-col items-center">
+                                <img src="Images/Plain_concrete/Hero.jpg" onerror="this.onerror=null;this.src='Images/Plain_concrete/1.jpg'" alt="Plain concrete" class="w-full aspect-square object-cover rounded mb-3">
+                                <div class="font-semibold text-lg mb-1">Plain concrete</div>
+                                <div class="text-gray-600 text-sm mb-3">Simple, smooth concrete surface for driveways, paths, and patios.</div>
+                                <a href="#" class="text-[#4A6741] font-medium hover:underline">Learn more / Add link</a>
+                            </div>
+                            <div class="feature-card bg-white rounded-lg shadow p-4 flex flex-col items-center">
+                                <img src="Images/Outdoor_seatings_firepit/Hero.jpg" onerror="this.onerror=null;this.src='Images/Outdoor_seatings_firepit/1.jpg'" alt="Outdoor seatings/firepit" class="w-full aspect-square object-cover rounded mb-3">
+                                <div class="font-semibold text-lg mb-1">Outdoor seatings/firepit</div>
+                                <div class="text-gray-600 text-sm mb-3">Comfortable seating and fire features for outdoor gatherings and relaxation.</div>
+                                <a href="#" class="text-[#4A6741] font-medium hover:underline">Learn more / Add link</a>
+                            </div>
+                            <div class="feature-card bg-white rounded-lg shadow p-4 flex flex-col items-center">
+                                <img src="Images/Water_feature/Hero.jpg" onerror="this.onerror=null;this.src='Images/Water_feature/1.jpg'" alt="Water feature" class="w-full aspect-square object-cover rounded mb-3">
+                                <div class="font-semibold text-lg mb-1">Water feature</div>
+                                <div class="text-gray-600 text-sm mb-3">Fountains, ponds, or streams to add movement and tranquility to your garden.</div>
+                                <a href="#" class="text-[#4A6741] font-medium hover:underline">Learn more / Add link</a>
+                            </div>
+                            <div class="feature-card bg-white rounded-lg shadow p-4 flex flex-col items-center">
+                                <img src="Images/Retaining_wall/Hero.jpg" onerror="this.onerror=null;this.src='Images/Retaining_wall/1.jpg'" alt="Retaining wall" class="w-full aspect-square object-cover rounded mb-3">
+                                <div class="font-semibold text-lg mb-1">Retaining wall</div>
+                                <div class="text-gray-600 text-sm mb-3">Structural walls to manage elevation changes and create level areas.</div>
+                                <a href="#" class="text-[#4A6741] font-medium hover:underline">Learn more / Add link</a>
+                            </div>
+                            <div class="feature-card bg-white rounded-lg shadow p-4 flex flex-col items-center">
+                                <img src="Images/Stairs/Hero.jpg" onerror="this.onerror=null;this.src='Images/Stairs/1.jpg'" alt="Stairs" class="w-full aspect-square object-cover rounded mb-3">
+                                <div class="font-semibold text-lg mb-1">Stairs</div>
+                                <div class="text-gray-600 text-sm mb-3">Steps for safe and attractive transitions between different garden levels.</div>
+                                <a href="#" class="text-[#4A6741] font-medium hover:underline">Learn more / Add link</a>
+                            </div>
+                            <div class="feature-card bg-white rounded-lg shadow p-4 flex flex-col items-center">
+                                <img src="Images/Decking/Hero.jpg" onerror="this.onerror=null;this.src='Images/Decking/1.jpg'" alt="Decking" class="w-full aspect-square object-cover rounded mb-3">
+                                <div class="font-semibold text-lg mb-1">Decking</div>
+                                <div class="text-gray-600 text-sm mb-3">Timber or composite decks for outdoor living and entertaining spaces.</div>
+                                <a href="#" class="text-[#4A6741] font-medium hover:underline">Learn more / Add link</a>
+                            </div>
+                            <div class="feature-card bg-white rounded-lg shadow p-4 flex flex-col items-center">
+                                <img src="Images/Pavement/Hero.jpg" onerror="this.onerror=null;this.src='Images/Pavement/1.jpg'" alt="Pavement" class="w-full aspect-square object-cover rounded mb-3">
+                                <div class="font-semibold text-lg mb-1">Pavement</div>
+                                <div class="text-gray-600 text-sm mb-3">Paved surfaces for driveways, walkways, and patios.</div>
+                                <a href="#" class="text-[#4A6741] font-medium hover:underline">Learn more / Add link</a>
+                            </div>
+                            <div class="feature-card bg-white rounded-lg shadow p-4 flex flex-col items-center">
+                                <img src="Images/Garden_beds_Plantings/Hero.jpg" onerror="this.onerror=null;this.src='Images/Garden_beds_Plantings/1.jpg'" alt="Garden beds & Plantings" class="w-full aspect-square object-cover rounded mb-3">
+                                <div class="font-semibold text-lg mb-1">Garden beds & Plantings</div>
+                                <div class="text-gray-600 text-sm mb-3">Flower beds and plantings to add color, texture, and biodiversity.</div>
+                                <a href="#" class="text-[#4A6741] font-medium hover:underline">Learn more / Add link</a>
+                            </div>
+                            <div class="feature-card bg-white rounded-lg shadow p-4 flex flex-col items-center">
+                                <img src="Images/Lawn_grass/Hero.jpg" onerror="this.onerror=null;this.src='Images/Lawn_grass/1.jpg'" alt="Lawn/grass" class="w-full aspect-square object-cover rounded mb-3">
+                                <div class="font-semibold text-lg mb-1">Lawn/grass</div>
+                                <div class="text-gray-600 text-sm mb-3">Open grassy areas for recreation, play, and relaxation.</div>
+                                <a href="#" class="text-[#4A6741] font-medium hover:underline">Learn more / Add link</a>
+                            </div>
+                            <div class="feature-card bg-white rounded-lg shadow p-4 flex flex-col items-center">
+                                <img src="Images/Lightings/Hero.jpg" onerror="this.onerror=null;this.src='Images/Lightings/1.jpg'" alt="Lightings" class="w-full aspect-square object-cover rounded mb-3">
+                                <div class="font-semibold text-lg mb-1">Lightings</div>
+                                <div class="text-gray-600 text-sm mb-3">Outdoor lighting for safety, ambiance, and highlighting features.</div>
+                                <a href="#" class="text-[#4A6741] font-medium hover:underline">Learn more / Add link</a>
+                            </div>
+                            <div class="feature-card bg-white rounded-lg shadow p-4 flex flex-col items-center">
+                                <img src="Images/Irrigation_system/Hero.jpg" onerror="this.onerror=null;this.src='Images/Irrigation_system/1.jpg'" alt="Irrigation system" class="w-full aspect-square object-cover rounded mb-3">
+                                <div class="font-semibold text-lg mb-1">Irrigation system</div>
+                                <div class="text-gray-600 text-sm mb-3">Automated watering systems to keep your garden healthy and green.</div>
+                                <a href="#" class="text-[#4A6741] font-medium hover:underline">Learn more / Add link</a>
+                            </div>
+                            <div class="feature-card bg-white rounded-lg shadow p-4 flex flex-col items-center">
+                                <img src="Images/Garden_edging/Hero.jpg" onerror="this.onerror=null;this.src='Images/Garden_edging/1.jpg'" alt="Garden edging" class="w-full aspect-square object-cover rounded mb-3">
+                                <div class="font-semibold text-lg mb-1">Garden edging</div>
+                                <div class="text-gray-600 text-sm mb-3">Edging to define garden beds and create clean lines.</div>
+                                <a href="#" class="text-[#4A6741] font-medium hover:underline">Learn more / Add link</a>
+                            </div>
+                            <div class="feature-card bg-white rounded-lg shadow p-4 flex flex-col items-center">
+                                <img src="Images/Others_Earth_work_etc/Hero.jpg" onerror="this.onerror=null;this.src='Images/Others_Earth_work_etc/1.jpg'" alt="Others(Earth work etc.)" class="w-full aspect-square object-cover rounded mb-3">
+                                <div class="font-semibold text-lg mb-1">Others(Earth work etc.)</div>
+                                <div class="text-gray-600 text-sm mb-3">Other site works, earth moving, or custom features.</div>
+                                <a href="#" class="text-[#4A6741] font-medium hover:underline">Learn more / Add link</a>
+                            </div>
+                        </div>
+                        <div class="mt-8 flex justify-between">
+                            <button type="button" class="prev-step btn-secondary px-6 py-2 rounded-md">Back</button>
+                            <button type="button" class="next-step btn-primary px-6 py-2 rounded-md">Continue</button>
+                        </div>
+                    </div>
+
+                    <!-- Step 4: Softscape Elements -->
+                    <div class="step-content hidden fade-in" id="step-4">
+                        <h3 class="text-2xl font-light mb-6">Step 4: Select Softscape Elements</h3>
+                        <div class="mb-4">Choose the plants and landscaping elements for your design.</div>
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                            <label class="flex items-center p-4 bg-white rounded-lg shadow cursor-pointer hover:bg-gray-50">
+                                <input type="checkbox" name="softscape[]" value="trees" class="accent-[#4A6741] mr-3">
+                                <div>
+                                    <h4 class="font-medium">Trees & Shrubs</h4>
+                                    <p class="text-sm text-gray-600">Structure and shade</p>
+                                </div>
+                            </label>
+                            <label class="flex items-center p-4 bg-white rounded-lg shadow cursor-pointer hover:bg-gray-50">
+                                <input type="checkbox" name="softscape[]" value="lawn" class="accent-[#4A6741] mr-3">
+                                <div>
+                                    <h4 class="font-medium">Lawn</h4>
+                                    <p class="text-sm text-gray-600">Grass areas for recreation</p>
+                                </div>
+                            </label>
+                            <label class="flex items-center p-4 bg-white rounded-lg shadow cursor-pointer hover:bg-gray-50">
+                                <input type="checkbox" name="softscape[]" value="garden_beds" class="accent-[#4A6741] mr-3">
+                                <div>
+                                    <h4 class="font-medium">Garden Beds</h4>
+                                    <p class="text-sm text-gray-600">Flowers and ornamental plants</p>
+                                </div>
+                            </label>
+                            <label class="flex items-center p-4 bg-white rounded-lg shadow cursor-pointer hover:bg-gray-50">
+                                <input type="checkbox" name="softscape[]" value="irrigation" class="accent-[#4A6741] mr-3">
+                                <div>
+                                    <h4 class="font-medium">Irrigation System</h4>
+                                    <p class="text-sm text-gray-600">Automatic watering system</p>
+                                </div>
+                            </label>
+                        </div>
+                        <div class="mt-8 flex justify-between">
+                            <button type="button" class="prev-step btn-secondary px-6 py-2 rounded-md">Back</button>
+                            <button type="button" class="next-step btn-primary px-6 py-2 rounded-md">Continue</button>
+                        </div>
+                    </div>
+
+                    <!-- Step 5: Budget Range -->
+                    <div class="step-content hidden fade-in" id="step-5">
+                        <h3 class="text-2xl font-light mb-6">Step 5: Budget Range</h3>
+                        <div class="mb-4">Select your budget range to help us provide appropriate recommendations.</div>
+                        <div class="space-y-4">
+                            <label class="flex items-center p-4 bg-white rounded-lg shadow cursor-pointer hover:bg-gray-50">
+                                <input type="radio" name="budget" value="economy" class="accent-[#4A6741] mr-3">
+                                <div>
+                                    <h4 class="font-medium">Economy ($5,000 - $15,000)</h4>
+                                    <p class="text-sm text-gray-600">Basic landscaping with essential elements</p>
+                                </div>
+                            </label>
+                            <label class="flex items-center p-4 bg-white rounded-lg shadow cursor-pointer hover:bg-gray-50">
+                                <input type="radio" name="budget" value="standard" class="accent-[#4A6741] mr-3">
+                                <div>
+                                    <h4 class="font-medium">Standard ($15,000 - $35,000)</h4>
+                                    <p class="text-sm text-gray-600">Quality materials with good variety</p>
+                                </div>
+                            </label>
+                            <label class="flex items-center p-4 bg-white rounded-lg shadow cursor-pointer hover:bg-gray-50">
+                                <input type="radio" name="budget" value="premium" class="accent-[#4A6741] mr-3">
+                                <div>
+                                    <h4 class="font-medium">Premium ($35,000 - $75,000)</h4>
+                                    <p class="text-sm text-gray-600">High-end materials and complex features</p>
+                                </div>
+                            </label>
+                            <label class="flex items-center p-4 bg-white rounded-lg shadow cursor-pointer hover:bg-gray-50">
+                                <input type="radio" name="budget" value="luxury" class="accent-[#4A6741] mr-3">
+                                <div>
+                                    <h4 class="font-medium">Luxury ($75,000+)</h4>
+                                    <p class="text-sm text-gray-600">Custom design with premium everything</p>
+                                </div>
+                            </label>
+                        </div>
+                        <div class="mt-8 flex justify-between">
+                            <button type="button" class="prev-step btn-secondary px-6 py-2 rounded-md">Back</button>
+                            <button type="button" class="next-step btn-primary px-6 py-2 rounded-md">Continue</button>
+                        </div>
+                    </div>
+
+                    <!-- Step 6: Timeline -->
+                    <div class="step-content hidden fade-in" id="step-6">
+                        <h3 class="text-2xl font-light mb-6">Step 6: Project Timeline</h3>
+                        <div class="mb-4">When would you like to start your project?</div>
+                        <div class="space-y-4">
+                            <label class="flex items-center p-4 bg-white rounded-lg shadow cursor-pointer hover:bg-gray-50">
+                                <input type="radio" name="timeline" value="immediate" class="accent-[#4A6741] mr-3">
+                                <div>
+                                    <h4 class="font-medium">Immediate (Within 1 month)</h4>
+                                    <p class="text-sm text-gray-600">Ready to start right away</p>
+                                </div>
+                            </label>
+                            <label class="flex items-center p-4 bg-white rounded-lg shadow cursor-pointer hover:bg-gray-50">
+                                <input type="radio" name="timeline" value="soon" class="accent-[#4A6741] mr-3">
+                                <div>
+                                    <h4 class="font-medium">Soon (1-3 months)</h4>
+                                    <p class="text-sm text-gray-600">Planning and preparation phase</p>
+                                </div>
+                            </label>
+                            <label class="flex items-center p-4 bg-white rounded-lg shadow cursor-pointer hover:bg-gray-50">
+                                <input type="radio" name="timeline" value="future" class="accent-[#4A6741] mr-3">
+                                <div>
+                                    <h4 class="font-medium">Future (3+ months)</h4>
+                                    <p class="text-sm text-gray-600">Long-term planning</p>
+                                </div>
+                            </label>
+                        </div>
+                        <div class="mt-8 flex justify-between">
+                            <button type="button" class="prev-step btn-secondary px-6 py-2 rounded-md">Back</button>
+                            <button type="button" class="next-step btn-primary px-6 py-2 rounded-md">Continue</button>
+                        </div>
+                    </div>
+
+                    <!-- Step 7: Contact Information -->
+                    <div class="step-content hidden fade-in" id="step-7">
+                        <h3 class="text-2xl font-light mb-6">Step 7: Contact Information</h3>
+                        <div class="mb-4">Please provide your contact details so we can send you a detailed quote and design proposal.</div>
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                            <div>
+                                <label class="block text-gray-700 mb-2 font-medium">First Name *</label>
+                                <input type="text" name="first_name" required class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#4A6741]">
+                            </div>
+                            <div>
+                                <label class="block text-gray-700 mb-2 font-medium">Last Name *</label>
+                                <input type="text" name="last_name" required class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#4A6741]">
+                            </div>
+                            <div>
+                                <label class="block text-gray-700 mb-2 font-medium">Email *</label>
+                                <input type="email" name="email" required class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#4A6741]">
+                            </div>
+                            <div>
+                                <label class="block text-gray-700 mb-2 font-medium">Phone</label>
+                                <input type="tel" name="phone" class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#4A6741]">
+                            </div>
+                            <div class="md:col-span-2">
+                                <label class="block text-gray-700 mb-2 font-medium">Additional Notes</label>
+                                <textarea name="notes" rows="3" class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#4A6741]" placeholder="Any specific requirements or preferences..."></textarea>
+                            </div>
+                        </div>
+                        <div class="mt-8 flex justify-between">
+                            <button type="button" class="prev-step btn-secondary px-6 py-2 rounded-md">Back</button>
+                            <button type="submit" class="btn-primary px-8 py-3 rounded-md">Get My Quote</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+    <!-- Education Section -->
+    <section id="education" class="py-20 bg-stone-50">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-light mb-4">Landscape Education</h2>
+                <p class="text-gray-600 max-w-2xl mx-auto">Explore our educational resources to learn more about landscape design principles, elements, and styles.</p>
+            </div>
+            
+            <div class="max-w-5xl mx-auto">
+                <!-- Education Tabs -->
+                <div class="flex flex-wrap border-b border-gray-200 mb-8">
+                    <button class="education-tab active px-6 py-3 text-[#4A6741] border-b-2 border-[#4A6741] font-medium" data-tab="garden-styles">Garden Styles</button>
+                    <button class="education-tab px-6 py-3 text-gray-500 hover:text-[#4A6741]" data-tab="element-guides">Element Guides</button>
+                    <button class="education-tab px-6 py-3 text-gray-500 hover:text-[#4A6741]" data-tab="price-guides">Price Guides</button>
+                </div>
+                
+                <!-- Tab Content -->
+                <div class="tab-content-container">
+                    <!-- Garden Styles Tab -->
+                    <div id="garden-styles" class="tab-content active fade-in">
+                        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                            <div class="bg-white rounded-lg shadow-sm overflow-hidden">
+                                <div class="aspect-[2/3] bg-stone-200 overflow-hidden">
+                                    <img src="STYLES/Formal-Modern Minimalist/Hero.jpg" alt="Formal-Modern Minimalist" class="w-full aspect-square object-cover rounded mb-3">
+                                </div>
+                                <div class="p-6">
+                                    <h3 class="text-xl font-medium mb-2">Formal-Modern Minimalist</h3>
+                                    <p class="text-gray-600 mb-4">Clean lines, geometric shapes, and a limited color palette characterize this contemporary style.</p>
+                                    <a href="#" class="text-[#4A6741] font-medium hover:underline">Learn more</a>
+                                </div>
+                            </div>
+                            
+                            <div class="bg-white rounded-lg shadow-sm overflow-hidden">
+                                <div class="aspect-[2/3] bg-stone-200 overflow-hidden">
+                                    <img src="STYLES/Mediterranean-Drought tolerant/25c79064651514b85d81ebeeb134dc23.jpg" alt="Mediterranean-Drought tolerant" class="w-full aspect-square object-cover rounded mb-3">
+                                </div>
+                                <div class="p-6">
+                                    <h3 class="text-xl font-medium mb-2">Mediterranean-Drought tolerant</h3>
+                                    <p class="text-gray-600 mb-4">Drought-tolerant plants, terracotta elements, and warm colors inspired by Southern Europe.</p>
+                                    <a href="#" class="text-[#4A6741] font-medium hover:underline">Learn more</a>
+                                </div>
+                            </div>
+                            
+                            <div class="bg-white rounded-lg shadow-sm overflow-hidden">
+                                <div class="aspect-[2/3] bg-stone-200 overflow-hidden">
+                                    <img src="STYLES/Tropical-lush planting/Hero.jpg" alt="Tropical-lush planting" class="w-full aspect-square object-cover rounded mb-3">
+                                </div>
+                                <div class="p-6">
+                                    <h3 class="text-xl font-medium mb-2">Tropical-lush planting</h3>
+                                    <p class="text-gray-600 mb-4">Lush, vibrant plantings with bold foliage and exotic flowers creating a tropical paradise.</p>
+                                    <a href="#" class="text-[#4A6741] font-medium hover:underline">Learn more</a>
+                                </div>
+                            </div>
+                            
+                            <div class="bg-white rounded-lg shadow-sm overflow-hidden">
+                                <div class="aspect-[2/3] bg-stone-200 overflow-hidden">
+                                    <img src="STYLES/Naturalistic styles/Step into a modern Nantucket sanctuary complete with a secret garden.jpg" alt="Naturalistic styles" class="w-full aspect-square object-cover rounded mb-3">
+                                </div>
+                                <div class="p-6">
+                                    <h3 class="text-xl font-medium mb-2">Naturalistic styles</h3>
+                                    <p class="text-gray-600 mb-4">Organic, flowing designs that mimic natural landscapes and ecosystems.</p>
+                                    <a href="#" class="text-[#4A6741] font-medium hover:underline">Learn more</a>
+                                </div>
+                            </div>
+                            
+                            <div class="bg-white rounded-lg shadow-sm overflow-hidden">
+                                <div class="aspect-[2/3] bg-stone-200 overflow-hidden">
+                                    <img src="STYLES/Australian natives/Hero.jpg" alt="Australian natives" class="w-full aspect-square object-cover rounded mb-3">
+                                </div>
+                                <div class="p-6">
+                                    <h3 class="text-xl font-medium mb-2">Australian natives</h3>
+                                    <p class="text-gray-600 mb-4">Native Australian plants that are drought-resistant and support local wildlife.</p>
+                                    <a href="#" class="text-[#4A6741] font-medium hover:underline">Learn more</a>
+                                </div>
+                            </div>
+                            
+                            <div class="bg-white rounded-lg shadow-sm overflow-hidden">
+                                <div class="aspect-[2/3] bg-stone-200 overflow-hidden">
+                                    <img src="STYLES/Harmony-Zen garden/Hero.jpg" alt="Harmony-Zen garden" class="w-full aspect-square object-cover rounded mb-3">
+                                </div>
+                                <div class="p-6">
+                                    <h3 class="text-xl font-medium mb-2">Harmony-Zen garden</h3>
+                                    <p class="text-gray-600 mb-4">Tranquil spaces with carefully placed rocks, water features, and minimal plantings.</p>
+                                    <a href="#" class="text-[#4A6741] font-medium hover:underline">Learn more</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Element Guides Tab -->
+                    <div id="element-guides" class="tab-content hidden">
+                        <div class="space-y-8">
+                            <div class="bg-white rounded-lg shadow-sm p-6">
+                                <h3 class="text-xl font-medium mb-4">Hardscape Elements</h3>
+                                <div class="space-y-4">
+                                    <div class="flex items-start">
+                                        <div class="w-12 h-12 bg-[#4A6741] rounded-full flex items-center justify-center text-white mr-4 flex-shrink-0">
+                                            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                                            </svg>
+                                        </div>
+                                        <div>
+                                            <h4 class="font-medium mb-1">Patios & Decks</h4>
+                                            <p class="text-gray-600">The foundation of outdoor living spaces, providing areas for dining, entertaining, and relaxation.</p>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="flex items-start">
+                                        <div class="w-12 h-12 bg-[#4A6741] rounded-full flex items-center justify-center text-white mr-4 flex-shrink-0">
+                                            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                                            </svg>
+                                        </div>
+                                        <div>
+                                            <h4 class="font-medium mb-1">Retaining Walls</h4>
+                                            <p class="text-gray-600">Functional elements that manage elevation changes while adding visual interest to the landscape.</p>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="flex items-start">
+                                        <div class="w-12 h-12 bg-[#4A6741] rounded-full flex items-center justify-center text-white mr-4 flex-shrink-0">
+                                            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                                            </svg>
+                                        </div>
+                                        <div>
+                                            <h4 class="font-medium mb-1">Pathways & Steps</h4>
+                                            <p class="text-gray-600">Guide movement through the garden while connecting different areas and features.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="bg-white rounded-lg shadow-sm p-6">
+                                <h3 class="text-xl font-medium mb-4">Softscape Elements</h3>
+                                <div class="space-y-4">
+                                    <div class="flex items-start">
+                                        <div class="w-12 h-12 bg-[#4A6741] rounded-full flex items-center justify-center text-white mr-4 flex-shrink-0">
+                                            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                                            </svg>
+                                        </div>
+                                        <div>
+                                            <h4 class="font-medium mb-1">Trees & Shrubs</h4>
+                                            <p class="text-gray-600">Provide structure, shade, and seasonal interest as the backbone of your landscape design.</p>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="flex items-start">
+                                        <div class="w-12 h-12 bg-[#4A6741] rounded-full flex items-center justify-center text-white mr-4 flex-shrink-0">
+                                            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                                            </svg>
+                                        </div>
+                                        <div>
+                                            <h4 class="font-medium mb-1">Perennials & Annuals</h4>
+                                            <p class="text-gray-600">Add color, texture, and seasonal variety to your garden beds and borders.</p>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="flex items-start">
+                                        <div class="w-12 h-12 bg-[#4A6741] rounded-full flex items-center justify-center text-white mr-4 flex-shrink-0">
+                                            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                                            </svg>
+                                        </div>
+                                        <div>
+                                            <h4 class="font-medium mb-1">Lawns & Groundcovers</h4>
+                                            <p class="text-gray-600">Create open spaces for recreation and visual breathing room in your landscape design.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Price Guides Tab -->
+                    <div id="price-guides" class="tab-content hidden">
+                        <div class="bg-white rounded-lg shadow-sm p-6">
+                            <h3 class="text-xl font-medium mb-4">Landscape Element Price Ranges</h3>
+                            <p class="text-gray-600 mb-6">These price ranges are estimates and may vary based on materials, size, complexity, and site conditions.</p>
+                            
+                            <div class="overflow-x-auto">
+                                <table class="w-full text-left">
+                                    <thead>
+                                        <tr class="border-b border-gray-200">
+                                            <th class="pb-3 font-medium">Element</th>
+                                            <th class="pb-3 font-medium">Starting Price</th>
+                                            <th class="pb-3 font-medium">Premium Price</th>
+                                            <th class="pb-3 font-medium">Unit</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody class="divide-y divide-gray-100">
+                                        <tr>
+                                            <td class="py-3">Concrete Patio</td>
+                                            <td class="py-3">$90</td>
+                                            <td class="py-3">$150+</td>
+                                            <td class="py-3">per m²</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="py-3">Natural Stone Patio</td>
+                                            <td class="py-3">$180</td>
+                                            <td class="py-3">$350+</td>
+                                            <td class="py-3">per m²</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="py-3">Wooden Deck</td>
+                                            <td class="py-3">$180</td>
+                                            <td class="py-3">$400+</td>
+                                            <td class="py-3">per m²</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="py-3">Composite Deck</td>
+                                            <td class="py-3">$250</td>
+                                            <td class="py-3">$500+</td>
+                                            <td class="py-3">per m²</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="py-3">Lawn Installation</td>
+                                            <td class="py-3">$15</td>
+                                            <td class="py-3">$35+</td>
+                                            <td class="py-3">per m²</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="py-3">Garden Bed Preparation</td>
+                                            <td class="py-3">$40</td>
+                                            <td class="py-3">$80+</td>
+                                            <td class="py-3">per m²</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="py-3">Small Trees (2-3m)</td>
+                                            <td class="py-3">$150</td>
+                                            <td class="py-3">$500+</td>
+                                            <td class="py-3">each</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="py-3">Mature Trees (4m+)</td>
+                                            <td class="py-3">$500</td>
+                                            <td class="py-3">$3,000+</td>
+                                            <td class="py-3">each</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="py-3">Water Feature</td>
+                                            <td class="py-3">$1,000</td>
+                                            <td class="py-3">$10,000+</td>
+                                            <td class="py-3">each</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="py-3">Pergola</td>
+                                            <td class="py-3">$3,500</td>
+                                            <td class="py-3">$15,000+</td>
+                                            <td class="py-3">each</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Gallery Section -->
+    <section id="gallery" class="py-20 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-light mb-4">Our Portfolio</h2>
+                <p class="text-gray-600 max-w-2xl mx-auto">Explore our completed projects showcasing the quality and craftsmanship of our landscape designs.</p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <!-- Gallery Item 1 -->
+                <div class="gallery-item overflow-hidden rounded-lg shadow-sm">
+                    <div class="h-64 bg-stone-200 flex items-center justify-center">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-20 w-20 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                        </svg>
+                    </div>
+                    <div class="p-4">
+                        <h3 class="font-medium mb-1">Modern Courtyard</h3>
+                        <p class="text-gray-600 text-sm">Clean lines and minimalist design create a sophisticated urban retreat.</p>
+                    </div>
+                </div>
+                
+                <!-- Gallery Item 2 -->
+                <div class="gallery-item overflow-hidden rounded-lg shadow-sm">
+                    <div class="h-64 bg-stone-200 flex items-center justify-center">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-20 w-20 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                        </svg>
+                    </div>
+                    <div class="p-4">
+                        <h3 class="font-medium mb-1">Family Garden</h3>
+                        <p class="text-gray-600 text-sm">A multi-functional space for entertaining, play, and relaxation.</p>
+                    </div>
+                </div>
+                
+                <!-- Gallery Item 3 -->
+                <div class="gallery-item overflow-hidden rounded-lg shadow-sm">
+                    <div class="h-64 bg-stone-200 flex items-center justify-center">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-20 w-20 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                        </svg>
+                    </div>
+                    <div class="p-4">
+                        <h3 class="font-medium mb-1">Zen Retreat</h3>
+                        <p class="text-gray-600 text-sm">A tranquil Japanese-inspired garden with water features and careful plantings.</p>
+                    </div>
+                </div>
+                
+                <!-- Gallery Item 4 -->
+                <div class="gallery-item overflow-hidden rounded-lg shadow-sm">
+                    <div class="h-64 bg-stone-200 flex items-center justify-center">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-20 w-20 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                        </svg>
+                    </div>
+                    <div class="p-4">
+                        <h3 class="font-medium mb-1">Coastal Garden</h3>
+                        <p class="text-gray-600 text-sm">Salt-tolerant plantings and natural materials complement the oceanfront setting.</p>
+                    </div>
+                </div>
+                
+                <!-- Gallery Item 5 -->
+                <div class="gallery-item overflow-hidden rounded-lg shadow-sm">
+                    <div class="h-64 bg-stone-200 flex items-center justify-center">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-20 w-20 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                        </svg>
+                    </div>
+                    <div class="p-4">
+                        <h3 class="font-medium mb-1">Terraced Hillside</h3>
+                        <p class="text-gray-600 text-sm">A challenging slope transformed into a series of usable garden rooms.</p>
+                    </div>
+                </div>
+                
+                <!-- Gallery Item 6 -->
+                <div class="gallery-item overflow-hidden rounded-lg shadow-sm">
+                    <div class="h-64 bg-stone-200 flex items-center justify-center">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-20 w-20 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                        </svg>
+                    </div>
+                    <div class="p-4">
+                        <h3 class="font-medium mb-1">Outdoor Entertainment</h3>
+                        <p class="text-gray-600 text-sm">A complete outdoor living space with kitchen, fireplace, and dining area.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="text-center mt-10">
+                <a href="#" class="btn-secondary px-6 py-3 rounded-md inline-block">View Full Portfolio</a>
+            </div>
+        </div>
+    </section>
+    <!-- Pro Tools Section (Dynamic Card Version) -->
+    <section id="pro-tools" class="py-20 bg-stone-50">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-light mb-4">Professional Tools</h2>
+                <p class="text-gray-600 max-w-2xl mx-auto">Specialized tools for landscape professionals to assist with on-site measurements and estimations.</p>
+            </div>
+            <div id="pro-tools-list" class="space-y-8 max-w-5xl mx-auto">
+                <!-- 动态卡片插入区 -->
+            </div>
+            <div class="flex justify-center mt-8">
+                <button id="add-pro-tool" class="btn-secondary px-6 py-3 rounded-md inline-flex items-center gap-2">
+                    <i class="fas fa-plus"></i> Add item
+                </button>
+            </div>
+            <div class="max-w-5xl mx-auto mt-10 bg-white rounded-lg shadow p-6 flex justify-end">
+                <div class="text-right">
+                    <div class="text-lg font-medium mb-2">Total: <span id="pro-tools-total" class="text-2xl text-[#4A6741]">A$0.00</span></div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <template id="pro-tool-card-template">
+        <div class="pro-tool-card bg-white rounded-lg shadow border border-gray-200 p-4 flex flex-col md:flex-row gap-6 relative">
+            <div class="w-full md:w-1/3 flex flex-col items-center">
+                <label class="block w-full cursor-pointer group">
+                    <input type="file" accept="image/*" class="hidden pro-tool-image-input">
+                    <div class="aspect-[4/3] w-full bg-stone-100 rounded mb-2 flex items-center justify-center overflow-hidden">
+                        <img class="pro-tool-image-preview object-cover w-full h-full hidden" alt="Preview">
+                        <span class="text-gray-400 group-hover:text-[#4A6741] text-sm">Click to upload image</span>
+                    </div>
+                </label>
+            </div>
+            <div class="w-full md:w-2/3 flex flex-col gap-2">
+                <input type="text" class="pro-tool-title text-xl font-semibold border-b border-gray-200 focus:outline-none focus:border-[#4A6741] mb-1" placeholder="Title (e.g. Exposed aggregate concrete)">
+                <input type="text" class="pro-tool-desc text-sm text-gray-500 border-b border-gray-100 focus:outline-none focus:border-[#4A6741] mb-2" placeholder="Note or description (optional)">
+                <div class="flex flex-wrap gap-4 mb-2">
+                    <div>
+                        <label class="block text-xs text-gray-500 mb-1">Unit Price (A$)</label>
+                        <input type="number" min="0" step="0.01" class="pro-tool-unitprice w-24 px-2 py-1 border border-gray-200 rounded focus:outline-none focus:border-[#4A6741]" value="0">
+                    </div>
+                    <div>
+                        <label class="block text-xs text-gray-500 mb-1">Quantity</label>
+                        <input type="number" min="0" step="1" class="pro-tool-qty w-20 px-2 py-1 border border-gray-200 rounded focus:outline-none focus:border-[#4A6741]" value="0">
+                    </div>
+                </div>
+                <div class="flex justify-between items-center mt-2">
+                    <span class="text-gray-500 text-sm">Subtotal:</span>
+                    <span class="pro-tool-subtotal text-lg font-semibold text-[#4A6741]">A$0.00</span>
+                </div>
+            </div>
+            <button class="remove-pro-tool absolute top-2 right-2 text-gray-400 hover:text-red-500"><i class="fas fa-trash"></i></button>
+        </div>
+    </template>
+    <script>
+    // 动态卡片功能
+    function formatMoney(num) {
+        return 'A$' + Number(num).toLocaleString('en-AU', {minimumFractionDigits: 2, maximumFractionDigits: 2});
+    }
+    function updateTotal() {
+        let total = 0;
+        document.querySelectorAll('.pro-tool-subtotal').forEach(el => {
+            total += parseFloat(el.dataset.value || 0);
+        });
+        document.getElementById('pro-tools-total').textContent = formatMoney(total);
+    }
+    function updateCardSubtotal(card) {
+        const unit = parseFloat(card.querySelector('.pro-tool-unitprice').value) || 0;
+        const qty = parseFloat(card.querySelector('.pro-tool-qty').value) || 0;
+        const subtotal = unit * qty;
+        const subtotalEl = card.querySelector('.pro-tool-subtotal');
+        subtotalEl.textContent = formatMoney(subtotal);
+        subtotalEl.dataset.value = subtotal;
+        updateTotal();
+    }
+    function bindCardEvents(card) {
+        card.querySelector('.pro-tool-unitprice').addEventListener('input', () => updateCardSubtotal(card));
+        card.querySelector('.pro-tool-qty').addEventListener('input', () => updateCardSubtotal(card));
+        card.querySelector('.remove-pro-tool').addEventListener('click', () => {
+            card.remove();
+            updateTotal();
+        });
+        // 图片上传预览
+        card.querySelector('.pro-tool-image-input').addEventListener('change', function(e) {
+            const file = e.target.files[0];
+            const img = card.querySelector('.pro-tool-image-preview');
+            if (file) {
+                const reader = new FileReader();
+                reader.onload = function(ev) {
+                    img.src = ev.target.result;
+                    img.classList.remove('hidden');
+                    img.nextElementSibling.classList.add('hidden');
+                };
+                reader.readAsDataURL(file);
+            } else {
+                img.src = '';
+                img.classList.add('hidden');
+                img.nextElementSibling.classList.remove('hidden');
+            }
+        });
+    }
+    function addProToolCard() {
+        const tpl = document.getElementById('pro-tool-card-template');
+        const card = tpl.content.cloneNode(true).children[0];
+        document.getElementById('pro-tools-list').appendChild(card);
+        bindCardEvents(card);
+        updateCardSubtotal(card);
+    }
+    document.getElementById('add-pro-tool').addEventListener('click', addProToolCard);
+    // 初始化一个卡片
+    addProToolCard();
+    </script>
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white py-12">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <div>
+                    <h3 class="text-xl font-medium mb-4">Terrain</h3>
+                    <p class="text-gray-400">Premium landscape design and construction for discerning clients.</p>
+                </div>
+                <div>
+                    <h4 class="text-lg font-medium mb-4">Quick Links</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#home" class="text-gray-400 hover:text-white">Home</a></li>
+                        <li><a href="#design-portal" class="text-gray-400 hover:text-white">Design Portal</a></li>
+                        <li><a href="#education" class="text-gray-400 hover:text-white">Education</a></li>
+                        <li><a href="#inspiration" class="text-gray-400 hover:text-white">Inspiration</a></li>
+                        <li><a href="pro-tools.html" class="text-gray-400 hover:text-white">Pro Tools</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-lg font-medium mb-4">Contact</h4>
+                    <ul class="space-y-2">
+                        <li class="flex items-center">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                            </svg>
+                            <a href="mailto:info@terrainlandscapes.com" class="text-gray-400 hover:text-white">info@terrainlandscapes.com</a>
+                        </li>
+                        <li class="flex items-center">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
+                            </svg>
+                            <a href="tel:+1234567890" class="text-gray-400 hover:text-white">(123) 456-7890</a>
+                        </li>
+                        <li class="flex items-center">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+                            </svg>
+                            <span class="text-gray-400">123 Garden Street, Suite 100<br>Landscape City, LC 12345</span>
+                        </li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-lg font-medium mb-4">Connect</h4>
+                    <div class="flex space-x-4">
+                        <a href="#" class="text-gray-400 hover:text-white">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M9 8h-3v4h3v12h5v-12h3.642l.358-4h-4v-1.667c0-.955.192-1.333 1.115-1.333h2.885v-5h-3.808c-3.596 0-5.192 1.583-5.192 4.615v3.385z"/>
+                            </svg>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-white">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-"/>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Hero Image Changer
+        function changeHeroImage(heroClass) {
+            const heroSection = document.querySelector('.hero-section');
+            
+            // Remove all hero classes
+            heroSection.classList.remove('hero-1', 'hero-2', 'hero-3', 'hero-4', 'hero-5', 'hero-6');
+            
+            // Add the selected hero class
+            heroSection.classList.add(heroClass);
+            
+            // Update active button
+            document.querySelectorAll('.hero-btn').forEach(btn => {
+                btn.classList.remove('active');
+            });
+            event.target.classList.add('active');
+        }
+        
+        // Mobile Menu Toggle
+        document.getElementById('mobile-menu-button').addEventListener('click', function() {
+            const mobileMenu = document.getElementById('mobile-menu');
+            mobileMenu.classList.toggle('hidden');
+        });
+        
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Design Portal Step Navigation
+        let currentStep = 1;
+        const totalSteps = 7; // Updated to 7 steps
+
+        function showStep(stepNumber) {
+            // Hide all steps
+            document.querySelectorAll('.step-content').forEach(step => {
+                step.classList.add('hidden');
+            });
+            
+            // Show the current step
+            const currentStepElement = document.getElementById(`step-${stepNumber}`);
+            if (currentStepElement) {
+                currentStepElement.classList.remove('hidden');
+                currentStepElement.classList.add('fade-in');
+            }
+            
+            // Update step indicators
+            document.querySelectorAll('.step-indicator').forEach((indicator, index) => {
+                if (index + 1 <= stepNumber) {
+                    indicator.classList.add('bg-[#4A6741]', 'text-white');
+                    indicator.classList.remove('bg-gray-200', 'text-gray-600');
+                } else {
+                    indicator.classList.remove('bg-[#4A6741]', 'text-white');
+                    indicator.classList.add('bg-gray-200', 'text-gray-600');
+                }
+            });
+        }
+
+        // Next step button
+        document.addEventListener('click', function(e) {
+            if (e.target.classList.contains('next-step')) {
+                if (currentStep < totalSteps) {
+                    currentStep++;
+                    showStep(currentStep);
+                }
+            }
+        });
+
+        // Previous step button
+        document.addEventListener('click', function(e) {
+            if (e.target.classList.contains('prev-step')) {
+                if (currentStep > 1) {
+                    currentStep--;
+                    showStep(currentStep);
+                }
+            }
+        });
+
+        // Garden style selection visual feedback
+        document.addEventListener('change', function(e) {
+            if (e.target.name === 'garden_style') {
+                // Remove active class from all garden style options
+                document.querySelectorAll('.garden-style-option').forEach(option => {
+                    option.querySelector('div').classList.remove('border-[#4A6741]', 'bg-green-50');
+                    option.querySelector('div').classList.add('border-gray-200');
+                });
+                
+                // Add active class to selected option
+                const selectedOption = e.target.closest('.garden-style-option');
+                if (selectedOption) {
+                    selectedOption.querySelector('div').classList.add('border-[#4A6741]', 'bg-green-50');
+                    selectedOption.querySelector('div').classList.remove('border-gray-200');
+                }
+            }
+        });
+
+        // Form submission
+        document.getElementById('estimator-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Collect form data
+            const formData = new FormData(this);
+            const data = Object.fromEntries(formData);
+            
+            // Show success message
+            alert('Thank you! Your design request has been submitted. We will contact you within 24 hours with a detailed quote and design proposal.');
+            
+            // Reset form and go back to step 1
+            this.reset();
+            currentStep = 1;
+            showStep(1);
+            
+            // Reset garden style visual feedback
+            document.querySelectorAll('.garden-style-option').forEach(option => {
+                option.querySelector('div').classList.remove('border-[#4A6741]', 'bg-green-50');
+                option.querySelector('div').classList.add('border-gray-200');
+            });
+        });
+
+        // Category expansion/collapse
+        document.addEventListener('click', function(e) {
+            if (e.target.closest('.category-header')) {
+                const category = e.target.closest('.feature-category');
+                const options = category.querySelector('.category-options');
+                options.classList.toggle('hidden');
+            }
+        });
+
+        // Education tabs
+        document.addEventListener('click', function(e) {
+            if (e.target.classList.contains('education-tab')) {
+                // Remove active class from all tabs
+                document.querySelectorAll('.education-tab').forEach(tab => {
+                    tab.classList.remove('active', 'text-[#4A6741]', 'border-b-2', 'border-[#4A6741]');
+                    tab.classList.add('text-gray-500');
+                });
+                
+                // Add active class to clicked tab
+                e.target.classList.add('active', 'text-[#4A6741]', 'border-b-2', 'border-[#4A6741]');
+                e.target.classList.remove('text-gray-500');
+                
+                // Hide all tab content
+                document.querySelectorAll('.tab-content').forEach(content => {
+                    content.classList.add('hidden');
+                    content.classList.remove('active');
+                });
+                
+                // Show selected tab content
+                const tabName = e.target.getAttribute('data-tab');
+                const selectedContent = document.getElementById(tabName);
+                if (selectedContent) {
+                    selectedContent.classList.remove('hidden');
+                    selectedContent.classList.add('active');
+                }
+            }
+        });
+
+        // Initialize first step
+        showStep(1);
+    </script>
+
+    <!-- Inspiration Section -->
+    <section id="inspiration" class="py-20 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-light mb-4">Inspiration</h2>
+                <p class="text-gray-600 max-w-2xl mx-auto">探索我们完成的项目，展示我们景观设计的质量和工艺。</p>
+            </div>
+            
+            <div id="inspiration-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <!-- 动态加载的图片项目 -->
+            </div>
+            
+            <div class="text-center mt-10">
+                <a href="admin.html" class="btn-secondary px-6 py-3 rounded-md inline-block">管理图片库</a>
+            </div>
+        </div>
+    </section>
+</body>
+</html> 

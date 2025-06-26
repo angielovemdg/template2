@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Professional Tools | Terrain</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <style>
+        body { font-family: 'Montserrat', sans-serif; color: #333; background: #faf6ef; }
+        .btn-secondary { background: transparent; border: 1px solid #4A6741; color: #4A6741; transition: all 0.3s; }
+        .btn-secondary:hover { background: #4A6741; color: #fff; }
+        .pro-tool-card input:focus { outline: none; border-color: #4A6741; }
+        .pro-tool-imgs img { border-radius: 0.5rem; border: 1px solid #eee; }
+    </style>
+</head>
+<body class="bg-stone-50">
+    <!-- Navigation -->
+    <nav class="w-full bg-white bg-opacity-95 shadow-sm z-50">
+        <div class="container mx-auto px-4 py-4 flex justify-between items-center">
+            <div class="flex items-center">
+                <a href="index.html" class="text-2xl font-semibold text-gray-800"><span class="text-[#4A6741]">Terrain</span></a>
+            </div>
+            <div class="hidden md:flex space-x-8">
+                <a href="index.html#home" class="nav-link text-gray-700 hover:text-[#4A6741]">Home</a>
+                <a href="index.html#design-portal" class="nav-link text-gray-700 hover:text-[#4A6741]">Design Portal</a>
+                <a href="index.html#education" class="nav-link text-gray-700 hover:text-[#4A6741]">Education</a>
+                <a href="index.html#gallery" class="nav-link text-gray-700 hover:text-[#4A6741]">Gallery</a>
+                <a href="pro-tools.html" class="nav-link text-[#4A6741] font-semibold">Pro Tools</a>
+            </div>
+        </div>
+    </nav>
+    <!-- Pro Tools Section (Predefined Categories) -->
+    <section id="pro-tools" class="py-20 bg-stone-50">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-light mb-4">Professional Tools</h2>
+                <p class="text-gray-600 max-w-2xl mx-auto">Specialized tools for landscape professionals to assist with on-site measurements and estimations.</p>
+            </div>
+            <div id="pro-tools-list" class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto"></div>
+            <div class="max-w-5xl mx-auto mt-10 bg-white rounded-lg shadow p-6 flex justify-end">
+                <div class="text-right">
+                    <div class="text-lg font-medium mb-2">Total: <span id="pro-tools-total" class="text-2xl text-[#4A6741]">A$0.00</span></div>
+                </div>
+            </div>
+            <div class="flex justify-center mt-8">
+                <button id="breakdown-btn" class="btn-secondary px-6 py-3 rounded-md inline-block">Breakdown Pricelist</button>
+            </div>
+            <div id="breakdown-modal" class="fixed inset-0 bg-black bg-opacity-40 flex items-center justify-center z-50 hidden">
+                <div class="bg-white rounded-lg shadow-lg p-8 max-w-2xl w-full relative">
+                    <button id="close-breakdown" class="absolute top-2 right-2 text-gray-400 hover:text-red-500 text-2xl">&times;</button>
+                    <div id="breakdown-doc-preview" class="overflow-y-auto max-h-[70vh]"></div>
+                    <div class="flex justify-end mt-6 gap-4">
+                        <button type="button" id="download-eoi-pdf" class="btn-secondary px-6 py-2 rounded-md">Download</button>
+                        <button id="proceed-eoi" class="btn-primary px-6 py-2 rounded-md shadow-lg hover:shadow-xl transition-all">Proceed</button>
+                    </div>
+                </div>
+            </div>
+            <div id="eoi-modal" class="fixed inset-0 bg-black bg-opacity-40 flex items-center justify-center z-50 hidden">
+                <div class="bg-white rounded-lg shadow-lg p-8 max-w-lg w-full relative">
+                    <button id="close-eoi" class="absolute top-2 right-2 text-gray-400 hover:text-red-500 text-2xl">&times;</button>
+                    <h3 class="text-2xl font-semibold mb-4">Expression of Interest (EOI)</h3>
+                    <form id="eoi-form" class="space-y-4">
+                        <div><label class="block text-gray-700 mb-1">Name*</label><input type="text" name="name" required class="w-full border rounded px-3 py-2"></div>
+                        <div><label class="block text-gray-700 mb-1">Email*</label><input type="email" name="email" required class="w-full border rounded px-3 py-2"></div>
+                        <div><label class="block text-gray-700 mb-1">Phone*</label><input type="tel" name="phone" required class="w-full border rounded px-3 py-2"></div>
+                        <div><label class="block text-gray-700 mb-1">Project Address*</label><input type="text" name="address" required class="w-full border rounded px-3 py-2"></div>
+                        <div><label class="block text-gray-700 mb-1">Additional Notes</label><textarea name="notes" class="w-full border rounded px-3 py-2"></textarea></div>
+                        <div class="flex justify-end mt-4">
+                            <button type="submit" class="btn-primary px-8 py-2 rounded-md">Submit</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+    <script>
+    // 预制大类
+    const categories = [
+        { key: 'Exposed_aggregate_concrete', name: 'Exposed aggregate concrete' },
+        { key: 'Plain_concrete', name: 'Plain concrete' },
+        { key: 'Outdoor_seatings_firepit', name: 'Outdoor seatings/firepit' },
+        { key: 'Water_feature', name: 'Water feature' },
+        { key: 'Retaining_wall', name: 'Retaining wall' },
+        { key: 'Stairs', name: 'Stairs' },
+        { key: 'Decking', name: 'Decking' },
+        { key: 'Pavement', name: 'Pavement' },
+        { key: 'Garden_beds_Plantings', name: 'Garden beds & Plantings' },
+        { key: 'Lawn_grass', name: 'Lawn/grass' },
+        { key: 'Lightings', name: 'Lightings' },
+        { key: 'Irrigation_system', name: 'Irrigation system' },
+        { key: 'Garden_edging', name: 'Garden edging' },
+        { key: 'Others_Earth_work_etc', name: 'Others(Earth work etc.)' }
+    ];
+    function formatMoney(num) {
+        return 'A$' + Number(num).toLocaleString('en-AU', {minimumFractionDigits: 2, maximumFractionDigits: 2});
+    }
+    function updateTotal() {
+        let total = 0;
+        document.querySelectorAll('.pro-tool-subtotal').forEach(el => {
+            total += parseFloat(el.dataset.value || 0);
+        });
+        document.getElementById('pro-tools-total').textContent = formatMoney(total);
+    }
+    function updateCardSubtotal(card) {
+        const unit = parseFloat(card.querySelector('.pro-tool-unitprice').value) || 0;
+        const qty = parseFloat(card.querySelector('.pro-tool-qty').value) || 0;
+        const subtotal = unit * qty;
+        const subtotalEl = card.querySelector('.pro-tool-subtotal');
+        subtotalEl.textContent = formatMoney(subtotal);
+        subtotalEl.dataset.value = subtotal;
+        updateTotal();
+    }
+    function createCategoryCard(cat) {
+        // 动态获取文件夹下所有图片（假设图片名和数量不固定）
+        // 由于前端无法直接读取本地文件夹内容，需预设图片名或由后端/构建工具生成图片列表。
+        // 这里采用通用方案：尝试加载1-8.jpg和常见图片格式，onerror隐藏，用户可自行扩展。
+        let imgs = '';
+        const exts = ['jpg','jpeg','png','webp'];
+        for(let i=1;i<=8;i++) {
+            for(const ext of exts) {
+                const imgPath = `images/${cat.key}/${i}.${ext}`;
+                imgs += `<img src="${imgPath}" alt="${cat.name} ${i}" class="w-32 h-24 object-cover mr-2 mb-2" onerror="this.style.display='none'">`;
+            }
+        }
+        return `
+        <div class="pro-tool-card bg-white rounded-lg shadow border border-gray-200 p-4 flex flex-col md:flex-row gap-6 relative">
+            <div class="w-full md:w-1/3 flex flex-col items-center pro-tool-imgs">${imgs}</div>
+            <div class="w-full md:w-2/3 flex flex-col gap-2">
+                <div class="text-xl font-semibold mb-1">${cat.name}</div>
+                <div class="flex flex-wrap gap-4 mb-2">
+                    <div>
+                        <label class="block text-xs text-gray-500 mb-1">Unit Price (A$)</label>
+                        <input type="number" min="0" step="0.01" class="pro-tool-unitprice w-24 px-2 py-1 border border-gray-200 rounded focus:outline-none focus:border-[#4A6741]" value="0">
+                    </div>
+                    <div>
+                        <label class="block text-xs text-gray-500 mb-1">Quantity</label>
+                        <input type="number" min="0" step="1" class="pro-tool-qty w-20 px-2 py-1 border border-gray-200 rounded focus:outline-none focus:border-[#4A6741]" value="0">
+                    </div>
+                </div>
+                <div class="flex justify-between items-center mt-2">
+                    <span class="text-gray-500 text-sm">Subtotal:</span>
+                    <span class="pro-tool-subtotal text-lg font-semibold text-[#4A6741]" data-value="0">A$0.00</span>
+                </div>
+            </div>
+        </div>`;
+    }
+    // 渲染所有大类卡片
+    document.getElementById('pro-tools-list').innerHTML = categories.map(createCategoryCard).join('');
+    // 绑定事件
+    document.querySelectorAll('.pro-tool-card').forEach(card => {
+        card.querySelector('.pro-tool-unitprice').addEventListener('input', () => updateCardSubtotal(card));
+        card.querySelector('.pro-tool-qty').addEventListener('input', () => updateCardSubtotal(card));
+        updateCardSubtotal(card);
+    });
+    // 生成文档HTML预览
+    function generateDocHTML(breakdownArr, total) {
+        return `
+        <h2 class='text-2xl font-bold mb-4'>Design and Construction Package EOI</h2>
+        <h3 class='text-lg font-semibold mb-2'>Breakdown Pricelist</h3>
+        <ul class='mb-4'>${breakdownArr.length ? breakdownArr.map(item => `<li class='mb-1'><b>${item.title}</b>: $${item.unit} x ${item.qty} = <b>A$${item.subtotal}</b></li>`).join('') : '<li class="text-gray-500">No items selected.</li>'}</ul>
+        <div class='mb-4 font-semibold'>Total: <span class='text-[#4A6741]'>A$${total.toFixed(2)}</span></div>
+        <div class='mb-4 text-sm text-gray-700'>Landscaping is a significant investment, and understanding potential costs upfront helps you make informed decisions. Below is a rough cost guide to assist with project planning. These estimates are based on our typical projects and serve as a starting point. While we aim to design within your budget, an accurate construction quote can only be delivered after the design is finalised. We will work with you to ensure the vision we create is both inspiring and achievable. Throughout the process, any variations will be clearly communicated, approved, and documented—no surprises, just unwavering quality commitment.</div>
+        <h3 class='text-lg font-semibold mb-2'>Terms and Conditions</h3>
+        <div class='text-xs text-gray-600 whitespace-pre-line'>1. Package Overview\nThe Client hereby engages Moon Design Group to provide a comprehensive Landscape Design and Construction Package. The scope of this package encompasses the following phases:\nDesign Phase: The Company will conduct site analysis, develop conceptual designs, and produce detailed final design drawings tailored to the Client's requirements.\nConstruction Phase: Subject to the Client's approval, the Company will execute the approved design, including site preparation, installation of hardscape and softscape features, and full - project management.\n2. Deposit Terms\nDeposit Amount: The Client shall pay a non - refundable deposit of $4,500+GST., equivalent to the value of the design services, upon signing this Agreement.\nApplication of Deposit:\nIf Construction Proceeds: The deposit will be credited towards the total construction cost.\nIf Construction Does Not Proceed: The deposit will be retained by Moon Design Group as full compensation for the completed design services.\n3. Design Services Process: Once the agreement is signed and the deposit is paid, the design consultant will initiate Stage 1: Site Assessment and Design Development. Upon approval of Stage 1, Stage 2: 3D Visual Development will be launched. Following the completion of Stage 2, Stage 3: Detailed Design Documentation will commence.\nQuotation: After the client approves the final design drawings, the design consultant will proceed with the landscaping construction quotation process.\nCopyright and License: The Design Consultant retains copyright in all designs, drawings, models, plans, specifications, design details, photographs, and any other materials provided by the Design Consultant in connection with the Project.\n4. Construction Services\nOption to Proceed:\nIf the Client wishes to proceed with construction, both parties will enter into a separate construction contract. Construction will commence after the contract is signed.\nIf the Client decides not to proceed with construction, the design consultant will deliver the approved final drawings and conclude the project.\n5. Termination\nEither party may terminate this Agreement in writing if the other party materially breaches its obligations and fails to cure the breach within 7 days of notice.\nIn case of termination, the rights and obligations regarding the deposit will remain as specified in Clause 2.</div>
+        `;
+    }
+    // Breakdown Pricelist Modal
+    document.getElementById('breakdown-btn').onclick = function() {
+        const list = Array.from(document.querySelectorAll('.pro-tool-card'));
+        let breakdownArr = [];
+        let total = 0;
+        list.forEach(card => {
+            const title = card.querySelector('div.text-xl').textContent.trim();
+            const unit = parseFloat(card.querySelector('.pro-tool-unitprice').value) || 0;
+            const qty = parseFloat(card.querySelector('.pro-tool-qty').value) || 0;
+            if (unit > 0 && qty > 0) {
+                breakdownArr.push({title, unit, qty, subtotal: (unit*qty).toFixed(2)});
+                total += unit*qty;
+            }
+        });
+        document.getElementById('breakdown-doc-preview').innerHTML = generateDocHTML(breakdownArr, total);
+        document.getElementById('breakdown-modal').classList.remove('hidden');
+    };
+    document.getElementById('close-breakdown').onclick = function() {
+        document.getElementById('breakdown-modal').classList.add('hidden');
+    };
+    document.getElementById('proceed-eoi').onclick = function() {
+        document.getElementById('breakdown-modal').classList.add('hidden');
+        document.getElementById('eoi-modal').classList.remove('hidden');
+    };
+    document.getElementById('close-eoi').onclick = function() {
+        document.getElementById('eoi-modal').classList.add('hidden');
+    };
+    // Download PDF
+    document.getElementById('download-eoi-pdf').onclick = function() {
+        const form = document.getElementById('eoi-form');
+        const name = form.name.value || '';
+        const email = form.email.value || '';
+        const phone = form.phone.value || '';
+        const address = form.address.value || '';
+        const notes = form.notes.value || '';
+        const list = Array.from(document.querySelectorAll('.pro-tool-card'));
+        let breakdown = '';
+        let total = 0;
+        list.forEach(card => {
+            const title = card.querySelector('div.text-xl').textContent.trim();
+            const unit = parseFloat(card.querySelector('.pro-tool-unitprice').value) || 0;
+            const qty = parseFloat(card.querySelector('.pro-tool-qty').value) || 0;
+            if (unit > 0 && qty > 0) {
+                breakdown += `${title}: $${unit} x ${qty} = A$${(unit*qty).toFixed(2)}\n`;
+                total += unit*qty;
+            }
+        });
+        const doc = new window.jspdf.jsPDF();
+        doc.setFontSize(18);
+        doc.text('Design and Construction Package EOI', 10, 15);
+        doc.setFontSize(12);
+        doc.text(`Name: ${name}\nEmail: ${email}\nPhone: ${phone}\nAddress: ${address}\nNotes: ${notes}`, 10, 25);
+        doc.text('Landscaping is a significant investment, and understanding potential costs upfront helps you make informed decisions. Below is a rough cost guide to assist with project planning. These estimates are based on our typical projects and serve as a starting point. While we aim to design within your budget, an accurate construction quote can only be delivered after the design is finalised. We will work with you to ensure the vision we create is both inspiring and achievable. Throughout the process, any variations will be clearly communicated, approved, and documented—no surprises, just unwavering quality commitment.', 10, 45, {maxWidth: 190});
+        doc.setFontSize(14);
+        doc.text('Design elements EOI (Expression of Interest) and cost estimates', 10, 85);
+        doc.setFontSize(12);
+        doc.text(breakdown || 'No items selected.', 10, 95);
+        doc.text(`Total: A$${total.toFixed(2)}`, 10, 105);
+        doc.setFontSize(14);
+        doc.text('Terms and Conditions:', 10, 120);
+        doc.setFontSize(10);
+        doc.text('1. Package Overview\nThe Client hereby engages Moon Design Group to provide a comprehensive Landscape Design and Construction Package. The scope of this package encompasses the following phases:\nDesign Phase: The Company will conduct site analysis, develop conceptual designs, and produce detailed final design drawings tailored to the Client\'s requirements.\nConstruction Phase: Subject to the Client\'s approval, the Company will execute the approved design, including site preparation, installation of hardscape and softscape features, and full - project management.\n2. Deposit Terms\nDeposit Amount: The Client shall pay a non - refundable deposit of $4,500+GST., equivalent to the value of the design services, upon signing this Agreement.\nApplication of Deposit:\nIf Construction Proceeds: The deposit will be credited towards the total construction cost.\nIf Construction Does Not Proceed: The deposit will be retained by Moon Design Group as full compensation for the completed design services.\n3. Design Services Process: Once the agreement is signed and the deposit is paid, the design consultant will initiate Stage 1: Site Assessment and Design Development. Upon approval of Stage 1, Stage 2: 3D Visual Development will be launched. Following the completion of Stage 2, Stage 3: Detailed Design Documentation will commence.\nQuotation: After the client approves the final design drawings, the design consultant will proceed with the landscaping construction quotation process.\nCopyright and License: The Design Consultant retains copyright in all designs, drawings, models, plans, specifications, design details, photographs, and any other materials provided by the Design Consultant in connection with the Project.\n4. Construction Services\nOption to Proceed:\nIf the Client wishes to proceed with construction, both parties will enter into a separate construction contract. Construction will commence after the contract is signed.\nIf the Client decides not to proceed with construction, the design consultant will deliver the approved final drawings and conclude the project.\n5. Termination\nEither party may terminate this Agreement in writing if the other party materially breaches its obligations and fails to cure the breach within 7 days of notice.\nIn case of termination, the rights and obligations regarding the deposit will remain as specified in Clause 2.', 10, 130, {maxWidth: 190});
+        doc.save('Design_and_Construction_Package_EOI.pdf');
+    };
+    // EOI Form Submit
+    document.getElementById('eoi-form').onsubmit = function(e) {
+        e.preventDefault();
+        const form = e.target;
+        const name = form.name.value;
+        const email = form.email.value;
+        const phone = form.phone.value;
+        const address = form.address.value;
+        const notes = form.notes.value;
+        // Breakdown
+        const list = Array.from(document.querySelectorAll('.pro-tool-card'));
+        let breakdown = '';
+        let total = 0;
+        list.forEach(card => {
+            const title = card.querySelector('div.text-xl').textContent.trim();
+            const unit = parseFloat(card.querySelector('.pro-tool-unitprice').value) || 0;
+            const qty = parseFloat(card.querySelector('.pro-tool-qty').value) || 0;
+            if (unit > 0 && qty > 0) {
+                breakdown += `${title}: $${unit} x ${qty} = A$${(unit*qty).toFixed(2)}\n`;
+                total += unit*qty;
+            }
+        });
+        // 邮件内容
+        const mailBody = encodeURIComponent(
+            `Name: ${name}\nEmail: ${email}\nPhone: ${phone}\nAddress: ${address}\nNotes: ${notes}\n\nBreakdown:\n${breakdown}\nTotal: A$${total.toFixed(2)}`
+        );
+        window.location.href = `mailto:admin@moondesigngroup.com.au?subject=EOI%20Submission&body=${mailBody}`;
+        document.getElementById('eoi-modal').classList.add('hidden');
+        alert('EOI submitted! We will contact you soon.');
+    };
+    </script>
+</body>
+</html> 
